@@ -40,7 +40,7 @@ public protocol EditorDelegate: AnyObject {
      
      - returns: A bool value that defines if the editor dismisses or not. The default implementation of this method returns `true`.
      */
-    func editorShouldDismiss(_ editor: Editor, with screenshot: UIImage) -> Bool
+    func editorShouldDismiss(_ editor: Editor, with screenshot: UIImage?) -> Bool
     
     /**
      A method that is called with an image just before the editor is dismissed.
@@ -50,7 +50,7 @@ public protocol EditorDelegate: AnyObject {
      
      - note: The default implementation of this method does nothing.
      */
-    func editorWillDismiss(_ editor: Editor, with screenshot: UIImage)
+    func editorWillDismiss(_ editor: Editor, with screenshot: UIImage?)
     
     /**
      A method that is called with an image just after the editor was dismissed.
@@ -60,7 +60,7 @@ public protocol EditorDelegate: AnyObject {
      
      - note: The default implementation of this method does nothing.
      */
-    func editorDidDismiss(_ editor: Editor, with screenshot: UIImage)
+    func editorDidDismiss(_ editor: Editor, with screenshot: UIImage?)
 }
 
 /// Extends `EditorDelegate` with base implementation for functions.
@@ -74,15 +74,15 @@ extension EditorDelegate {
         // Do nothing
     }
     
-    public func editorShouldDismiss(_ editor: Editor, with screenshot: UIImage) -> Bool {
+    public func editorShouldDismiss(_ editor: Editor, with screenshot: UIImage?) -> Bool {
         return true
     }
     
-    func editorWillDismiss(_ editor: Editor, with screenshot: UIImage) {
+    func editorWillDismiss(_ editor: Editor, with screenshot: UIImage?) {
         // Do nothing
     }
     
-    public func editorDidDismiss(_ editor: Editor, with screenshot: UIImage) {
+    public func editorDidDismiss(_ editor: Editor, with screenshot: UIImage?) {
         // Do nothing
     }
 }
